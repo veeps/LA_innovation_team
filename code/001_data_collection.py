@@ -34,5 +34,8 @@ df.columns = df.columns.str.replace(" ", "_")
 df["date_rptd"] = pd.to_datetime(df["date_rptd"])
 df["date_occ"]= pd.to_datetime(df["date_occ"])
 
+## Create a date year column
+df['year'] = pd.DatetimeIndex(df['date_rptd']).year
+
 # save data for later use
 pickle.dump(df, open("../data/crime_data.pkl", "wb"))
