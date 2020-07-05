@@ -13,5 +13,5 @@ def top_trends(df, column, variable, n):
 	variable = column name of the variable you're interested to explore (string)
 	n = how many of the top values do you want to see? (integer)
 	"""
-	top = df.groupby(column)[variable].value_counts(ascending = False)
-	return top.groupby(column).nlargest(n).reset_index(level=1, drop = True)
+	top = df.groupby(column)[variable].value_counts(ascending = False).reset_index(name="count")
+	return top.groupby(column).head(n)
