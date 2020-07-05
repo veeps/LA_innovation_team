@@ -7,16 +7,14 @@ import json
 import os
 
 # Read in crime code dictionary
-with open("../data/crimecodes.json") as f:
+with open("../assets/crimecodes.json") as f:
                     mocodes_data = json.loads(f.read())
 crime_dict = dict((int(k), v) for k, v in data.items())   
 
 # Read in MO code dictionary
-with open("../data/mocodes.json") as f:
+with open("../assets/mocodes.json") as f:
                     mocodes_data = json.loads(f.read())
 mocode_dict = dict((int(k), v) for k, v in data.items())                    
-
-
 
 
 def get_names(df, column, dict):
