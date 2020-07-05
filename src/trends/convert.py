@@ -8,13 +8,13 @@ import os
 
 # Read in crime code dictionary
 with open("../assets/crimecodes.json") as f:
-                    mocodes_data = json.loads(f.read())
-crime_dict = dict((int(k), v) for k, v in data.items())   
+                    crime_data = json.loads(f.read())
+crime_dict = dict((int(k), v) for k, v in crime_data.items())   
 
 # Read in MO code dictionary
 with open("../assets/mocodes.json") as f:
-                    mocodes_data = json.loads(f.read())
-mocode_dict = dict((int(k), v) for k, v in data.items())                    
+                    mocode_data = json.loads(f.read())
+mocode_dict = dict((int(k), v) for k, v in mocode_data.items())                    
 
 
 def get_names(df, column, dict):

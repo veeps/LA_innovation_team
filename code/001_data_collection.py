@@ -38,9 +38,9 @@ df["date_occ"]= pd.to_datetime(df["date_occ"])
 df['year'] = pd.DatetimeIndex(df['date_rptd']).year
 
 # Convert MO codes to numerics
-df["mocodes_1"] = df["mocodes"].str.split(" ").str[0]
-df["mocodes_2"] = df["mocodes"].str.split(" ").str[1]
-df["mocodes_3"] = df["mocodes"].str.split(" ").str[2]
+df["mocodes_1"] = df["mocodes"].str.split(" ").str[0].fillna(0).astype(int)
+df["mocodes_2"] = df["mocodes"].str.split(" ")
+df["mocodes_3"] = df["mocodes"].str.split(" ")
 
 # save data for later use
 pickle.dump(df, open("../data/crime_data.pkl", "wb"))
