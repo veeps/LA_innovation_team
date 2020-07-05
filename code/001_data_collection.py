@@ -30,12 +30,17 @@ df.columns = map(str.lower, df.columns)
 # Remove spaces from column names
 df.columns = df.columns.str.replace(" ", "_")
 
-## Convert date columns to date objects
+# Convert date columns to date objects
 df["date_rptd"] = pd.to_datetime(df["date_rptd"])
 df["date_occ"]= pd.to_datetime(df["date_occ"])
 
-## Create a date year column
+# Create a date year column
 df['year'] = pd.DatetimeIndex(df['date_rptd']).year
+
+# Convert MO codes to numerics
+df["mocodes_1"] = df["mocodes"].str.split(" ").str[0]
+df["mocodes_2"] = df["mocodes"].str.split(" ").str[1]
+df["mocodes_3"] = df["mocodes"].str.split(" ").str[2]
 
 # save data for later use
 pickle.dump(df, open("../data/crime_data.pkl", "wb"))
