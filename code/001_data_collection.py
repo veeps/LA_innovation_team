@@ -5,6 +5,7 @@ Data source for 2020: https://data.lacity.org/A-Safe-City/Crime-Data-from-2020-t
 """
 import pandas as pd
 import pickle
+import numpy as np
 
 # read in data from 2010-2019
 df_2019 = pd.read_csv("https://data.lacity.org/api/views/63jg-8b9z/rows.csv")
@@ -37,10 +38,12 @@ df["date_occ"]= pd.to_datetime(df["date_occ"])
 # Create a date year column
 df['year'] = pd.DatetimeIndex(df['date_rptd']).year
 
+
 # Convert MO codes to numerics
+df["mocodes"] = df["mocodes"].str.replace("-", "0") # remove dash
 df["mocodes_1"] = df["mocodes"].str.split(" ").str[0].fillna(0).astype(int)
-df["mocodes_2"] = df["mocodes"].str.split(" ")
-df["mocodes_3"] = df["mocodes"].str.split(" ")
+df["mocodes_2"] = df["mocodes"].str.split(" ").str[1].fillna(0).astype(int)
+df["mocodes_3"] = df["mocodes"].str.split(" ").str[2].fillna(0).astype(int)
 
 # save data for later use
 pickle.dump(df, open("../data/crime_data.pkl", "wb"))
