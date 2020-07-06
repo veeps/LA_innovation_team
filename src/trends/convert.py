@@ -19,7 +19,12 @@ violent_crime_dict = dict((int(k), v) for k, v in violent_crime_data.items())
 # Read in MO code dictionary
 with open("../assets/mo_codes.json") as f:
                     mocode_data = json.loads(f.read())
-mocode_dict = dict((int(k), v) for k, v in mocode_data.items())                    
+mocode_dict = dict((int(k), v) for k, v in mocode_data.items())      
+
+# Read in descent code dictionary
+with open("../assets/descent_codes.json") as f:
+                    desc_data = json.loads(f.read())
+desc_dict = dict((k, v) for k, v in desc_data.items())                
 
 
 def get_names(df, column, dict):
