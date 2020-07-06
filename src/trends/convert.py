@@ -7,12 +7,17 @@ import json
 import os
 
 # Read in crime code dictionary
-with open("../assets/crimecodes.json") as f:
+with open("../assets/crime_codes.json") as f:
                     crime_data = json.loads(f.read())
 crime_dict = dict((int(k), v) for k, v in crime_data.items())   
 
+# Read in violent crime code dictionary
+with open("../assets/violent_crime_codes.json") as f:
+                    violent_crime_data = json.loads(f.read())
+violent_crime_dict = dict((int(k), v) for k, v in violent_crime_data.items())    
+
 # Read in MO code dictionary
-with open("../assets/mocodes.json") as f:
+with open("../assets/mo_codes.json") as f:
                     mocode_data = json.loads(f.read())
 mocode_dict = dict((int(k), v) for k, v in mocode_data.items())                    
 
