@@ -1,3 +1,10 @@
+##Overview
+
+Data exercise for LA Innovation Team interview.
+
+## Data 
+Data is pulled from Los Angeles Crime Data set from [2010 to 2019](https://data.lacity.org/A-Safe-City/Crime-Data-from-2010-to-2019/63jg-8b9z) and [2020](https://data.lacity.org/A-Safe-City/Crime-Data-from-2020-to-Present/2nrs-mtv8). In total, there are over 2.2M rows of data in this timespan. Data is updated weekly by the LAPD.
+
 |Column|Type|Description|
 |:---|:---|:---|
 |dr_no|int64|Division of Records Number: Official file number made up of a 2 digit year, area ID, and 5 digits|
